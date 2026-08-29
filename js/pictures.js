@@ -20,6 +20,38 @@ const PICTURES = [
     `
   },
   {
+    id: 'truck',
+    name: '트럭',
+    emoji: '🚚',
+    svg: `
+      <circle class="fixed" cx="140" cy="290" r="44" fill="#2b2b2b"/>
+      <circle class="fixed" cx="380" cy="290" r="44" fill="#2b2b2b"/>
+      <rect class="region" data-name="운전석" x="60" y="150" width="150" height="140" rx="18"/>
+      <rect class="region" data-name="창문" x="80" y="168" width="95" height="55" rx="8"/>
+      <circle class="region" data-name="전조등" cx="68" cy="250" r="15"/>
+      <rect class="region" data-name="화물칸" x="210" y="195" width="230" height="95" rx="10"/>
+      <circle class="region" data-name="바퀴1" cx="140" cy="290" r="19"/>
+      <circle class="region" data-name="바퀴2" cx="380" cy="290" r="19"/>
+    `
+  },
+  {
+    id: 'bus',
+    name: '버스',
+    emoji: '🚌',
+    svg: `
+      <circle class="fixed" cx="150" cy="290" r="44" fill="#2b2b2b"/>
+      <circle class="fixed" cx="350" cy="290" r="44" fill="#2b2b2b"/>
+      <rect class="region" data-name="차체" x="70" y="140" width="340" height="140" rx="24"/>
+      <rect class="region" data-name="창문1" x="105" y="168" width="55" height="48" rx="8"/>
+      <rect class="region" data-name="창문2" x="172" y="168" width="55" height="48" rx="8"/>
+      <rect class="region" data-name="창문3" x="239" y="168" width="55" height="48" rx="8"/>
+      <rect class="region" data-name="창문4" x="306" y="168" width="55" height="48" rx="8"/>
+      <circle class="region" data-name="전조등" cx="395" cy="245" r="15"/>
+      <circle class="region" data-name="바퀴1" cx="150" cy="290" r="19"/>
+      <circle class="region" data-name="바퀴2" cx="350" cy="290" r="19"/>
+    `
+  },
+  {
     id: 'fish',
     name: '물고기',
     emoji: '🐠',
