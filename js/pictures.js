@@ -63,6 +63,13 @@ const PICTURES = [
       <circle class="region" data-name="전조등" cx="68" cy="250" r="14"/>
       <rect class="region" data-name="차체" x="190" y="195" width="250" height="95" rx="10"/>
       <rect class="region" data-name="사다리" x="200" y="165" width="220" height="28" rx="6"/>
+      <line class="fixed" x1="215" y1="170" x2="215" y2="188" stroke="#2b2b2b" stroke-width="4" stroke-linecap="round"/>
+      <line class="fixed" x1="245" y1="170" x2="245" y2="188" stroke="#2b2b2b" stroke-width="4" stroke-linecap="round"/>
+      <line class="fixed" x1="275" y1="170" x2="275" y2="188" stroke="#2b2b2b" stroke-width="4" stroke-linecap="round"/>
+      <line class="fixed" x1="305" y1="170" x2="305" y2="188" stroke="#2b2b2b" stroke-width="4" stroke-linecap="round"/>
+      <line class="fixed" x1="335" y1="170" x2="335" y2="188" stroke="#2b2b2b" stroke-width="4" stroke-linecap="round"/>
+      <line class="fixed" x1="365" y1="170" x2="365" y2="188" stroke="#2b2b2b" stroke-width="4" stroke-linecap="round"/>
+      <line class="fixed" x1="395" y1="170" x2="395" y2="188" stroke="#2b2b2b" stroke-width="4" stroke-linecap="round"/>
       <ellipse class="region" data-name="경광등" cx="125" cy="160" rx="20" ry="12"/>
       <circle class="region" data-name="바퀴1" cx="140" cy="290" r="19"/>
       <circle class="region" data-name="바퀴2" cx="380" cy="290" r="19"/>
