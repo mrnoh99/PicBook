@@ -88,7 +88,10 @@ function renderColorPage(id) {
       <div class="stage">
         <button class="nav prev" id="prevBtn" aria-label="이전 그림">◀</button>
         <div class="canvas-wrap">
-          <svg id="pic" viewBox="${VIEWBOX}">${pic.svg}</svg>
+          <svg id="pic" viewBox="${VIEWBOX}">
+            <rect class="region bg-region" data-name="배경" x="0" y="0" width="500" height="400" rx="16" ry="16"/>
+            ${pic.svg}
+          </svg>
         </div>
         <button class="nav next" id="nextBtn" aria-label="다음 그림">▶</button>
       </div>

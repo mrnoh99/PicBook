@@ -191,6 +191,11 @@ body {
   transition: fill 0.08s ease;
 }
 
+.bg-region {
+  stroke: #e5ddc8;
+  stroke-width: 2;
+}
+
 .fixed {
   pointer-events: none;
 }
@@ -236,6 +241,15 @@ body {
 .swatch.active {
   box-shadow: 0 0 0 4px #fff, 0 0 0 8px var(--c), 0 4px 0 var(--shadow);
   transform: translateY(-2px);
+}
+
+.swatch[data-color='#ffffff'] {
+  border-color: #d8cdb8;
+  box-shadow: 0 0 0 3px #d8cdb8, 0 4px 0 var(--shadow);
+}
+
+.swatch[data-color='#ffffff'].active {
+  box-shadow: 0 0 0 4px #fff, 0 0 0 8px #d8cdb8, 0 4px 0 var(--shadow);
 }
 
 .toast {
