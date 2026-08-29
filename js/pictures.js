@@ -62,14 +62,17 @@ const PICTURES = [
       <rect class="region" data-name="창문" x="78" y="185" width="85" height="50" rx="8"/>
       <circle class="region" data-name="전조등" cx="68" cy="250" r="14"/>
       <rect class="region" data-name="차체" x="190" y="195" width="250" height="95" rx="10"/>
-      <rect class="region" data-name="사다리" x="200" y="165" width="220" height="28" rx="6"/>
-      <line class="fixed" x1="215" y1="170" x2="215" y2="188" stroke="#2b2b2b" stroke-width="4" stroke-linecap="round"/>
-      <line class="fixed" x1="245" y1="170" x2="245" y2="188" stroke="#2b2b2b" stroke-width="4" stroke-linecap="round"/>
-      <line class="fixed" x1="275" y1="170" x2="275" y2="188" stroke="#2b2b2b" stroke-width="4" stroke-linecap="round"/>
-      <line class="fixed" x1="305" y1="170" x2="305" y2="188" stroke="#2b2b2b" stroke-width="4" stroke-linecap="round"/>
-      <line class="fixed" x1="335" y1="170" x2="335" y2="188" stroke="#2b2b2b" stroke-width="4" stroke-linecap="round"/>
-      <line class="fixed" x1="365" y1="170" x2="365" y2="188" stroke="#2b2b2b" stroke-width="4" stroke-linecap="round"/>
-      <line class="fixed" x1="395" y1="170" x2="395" y2="188" stroke="#2b2b2b" stroke-width="4" stroke-linecap="round"/>
+      <g transform="translate(420,195) rotate(209)">
+        <rect class="region" data-name="사다리" x="0" y="-14" width="320" height="28" rx="8"/>
+        <line class="fixed" x1="20" y1="-11" x2="20" y2="11" stroke="#2b2b2b" stroke-width="4" stroke-linecap="round"/>
+        <line class="fixed" x1="60" y1="-11" x2="60" y2="11" stroke="#2b2b2b" stroke-width="4" stroke-linecap="round"/>
+        <line class="fixed" x1="100" y1="-11" x2="100" y2="11" stroke="#2b2b2b" stroke-width="4" stroke-linecap="round"/>
+        <line class="fixed" x1="140" y1="-11" x2="140" y2="11" stroke="#2b2b2b" stroke-width="4" stroke-linecap="round"/>
+        <line class="fixed" x1="180" y1="-11" x2="180" y2="11" stroke="#2b2b2b" stroke-width="4" stroke-linecap="round"/>
+        <line class="fixed" x1="220" y1="-11" x2="220" y2="11" stroke="#2b2b2b" stroke-width="4" stroke-linecap="round"/>
+        <line class="fixed" x1="260" y1="-11" x2="260" y2="11" stroke="#2b2b2b" stroke-width="4" stroke-linecap="round"/>
+        <line class="fixed" x1="300" y1="-11" x2="300" y2="11" stroke="#2b2b2b" stroke-width="4" stroke-linecap="round"/>
+      </g>
       <ellipse class="region" data-name="경광등" cx="125" cy="160" rx="20" ry="12"/>
       <circle class="region" data-name="바퀴1" cx="140" cy="290" r="19"/>
       <circle class="region" data-name="바퀴2" cx="380" cy="290" r="19"/>
