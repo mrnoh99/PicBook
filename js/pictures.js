@@ -52,6 +52,23 @@ const PICTURES = [
     `
   },
   {
+    id: 'firetruck',
+    name: '소방차',
+    emoji: '🚒',
+    svg: `
+      <circle class="fixed" cx="140" cy="290" r="44" fill="#2b2b2b"/>
+      <circle class="fixed" cx="380" cy="290" r="44" fill="#2b2b2b"/>
+      <rect class="region" data-name="운전석" x="60" y="170" width="130" height="120" rx="16"/>
+      <rect class="region" data-name="창문" x="78" y="185" width="85" height="50" rx="8"/>
+      <circle class="region" data-name="전조등" cx="68" cy="250" r="14"/>
+      <rect class="region" data-name="차체" x="190" y="195" width="250" height="95" rx="10"/>
+      <rect class="region" data-name="사다리" x="200" y="165" width="220" height="28" rx="6"/>
+      <ellipse class="region" data-name="경광등" cx="125" cy="160" rx="20" ry="12"/>
+      <circle class="region" data-name="바퀴1" cx="140" cy="290" r="19"/>
+      <circle class="region" data-name="바퀴2" cx="380" cy="290" r="19"/>
+    `
+  },
+  {
     id: 'fish',
     name: '물고기',
     emoji: '🐠',
