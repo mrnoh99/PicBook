@@ -115,6 +115,24 @@ const PICTURES = [
     `
   },
   {
+    id: 'mouse',
+    name: '생쥐',
+    emoji: '🐭',
+    svg: `
+      <path class="region" data-name="꼬리" d="M400,290 Q480,270 470,180 Q465,150 445,160 Q455,220 385,255 Z"/>
+      <ellipse class="region" data-name="몸통" cx="290" cy="270" rx="120" ry="95"/>
+      <circle class="region" data-name="머리" cx="175" cy="165" r="85"/>
+      <circle class="region" data-name="귀1" cx="110" cy="95" r="38"/>
+      <circle class="region" data-name="귀2" cx="215" cy="85" r="35"/>
+      <ellipse class="region" data-name="코주둥이" cx="95" cy="175" rx="38" ry="28"/>
+      <circle class="fixed" cx="155" cy="155" r="9" fill="#2b2b2b"/>
+      <circle class="fixed" cx="60" cy="175" r="8" fill="#2b2b2b"/>
+      <line class="fixed" x1="75" y1="160" x2="20" y2="145" stroke="#3a3a3a" stroke-width="4" stroke-linecap="round"/>
+      <line class="fixed" x1="75" y1="175" x2="15" y2="175" stroke="#3a3a3a" stroke-width="4" stroke-linecap="round"/>
+      <line class="fixed" x1="75" y1="190" x2="20" y2="205" stroke="#3a3a3a" stroke-width="4" stroke-linecap="round"/>
+    `
+  },
+  {
     id: 'butterfly',
     name: '나비',
     emoji: '🦋',
