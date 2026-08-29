@@ -1,4 +1,4 @@
-# 🎨 PicBook - 아이를 위한 색칠공부 웹앱
+# 🎨 해성 해준의 색칠공부
 
 3~4세 아이가 iPad와 Apple Pencil로 즐길 수 있는 색칠공부 웹앱입니다.
 빌드 도구 없이 순수 HTML/CSS/JavaScript로 만들어져 GitHub Pages에 바로 올릴 수 있습니다.
