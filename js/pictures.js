@@ -133,6 +133,57 @@ const PICTURES = [
     `
   },
   {
+    id: 'bear',
+    name: '곰',
+    emoji: '🐻',
+    svg: `
+      <rect class="region" data-name="발1" x="175" y="345" width="48" height="50" rx="16"/>
+      <rect class="region" data-name="발2" x="280" y="345" width="48" height="50" rx="16"/>
+      <ellipse class="region" data-name="몸통" cx="260" cy="280" rx="135" ry="95"/>
+      <circle class="region" data-name="귀1" cx="175" cy="70" r="42"/>
+      <circle class="region" data-name="귀2" cx="345" cy="70" r="42"/>
+      <circle class="region" data-name="머리" cx="260" cy="140" r="95"/>
+      <ellipse class="region" data-name="코주둥이" cx="260" cy="175" rx="55" ry="42"/>
+      <circle class="fixed" cx="225" cy="140" r="10" fill="#2b2b2b"/>
+      <circle class="fixed" cx="295" cy="140" r="10" fill="#2b2b2b"/>
+      <ellipse class="fixed" cx="260" cy="170" rx="14" ry="10" fill="#2b2b2b"/>
+    `
+  },
+  {
+    id: 'panda',
+    name: '판다',
+    emoji: '🐼',
+    svg: `
+      <rect class="fixed" x="178" y="345" width="46" height="48" rx="16" fill="#2b2b2b"/>
+      <rect class="fixed" x="278" y="345" width="46" height="48" rx="16" fill="#2b2b2b"/>
+      <ellipse class="region" data-name="몸통" cx="260" cy="285" rx="130" ry="95"/>
+      <ellipse class="region" data-name="배" cx="260" cy="310" rx="68" ry="42"/>
+      <circle class="fixed" cx="185" cy="72" r="36" fill="#2b2b2b"/>
+      <circle class="fixed" cx="335" cy="72" r="36" fill="#2b2b2b"/>
+      <circle class="region" data-name="머리" cx="260" cy="140" r="88"/>
+      <ellipse class="region" data-name="코주둥이" cx="260" cy="172" rx="42" ry="30"/>
+      <ellipse class="fixed" cx="213" cy="128" rx="24" ry="32" fill="#2b2b2b"/>
+      <ellipse class="fixed" cx="307" cy="128" rx="24" ry="32" fill="#2b2b2b"/>
+      <ellipse class="fixed" cx="260" cy="163" rx="12" ry="8" fill="#2b2b2b"/>
+    `
+  },
+  {
+    id: 'dino',
+    name: '공룡',
+    emoji: '🦕',
+    svg: `
+      <rect class="region" data-name="다리1" x="200" y="320" width="45" height="65" rx="12"/>
+      <rect class="region" data-name="다리2" x="340" y="320" width="45" height="65" rx="12"/>
+      <polygon class="region" data-name="꼬리" points="410,255 490,235 495,270 460,280 415,275"/>
+      <ellipse class="region" data-name="몸통" cx="280" cy="250" rx="140" ry="95"/>
+      <polygon class="region" data-name="등" points="210,175 225,145 240,175 255,140 270,175 285,140 300,175 315,145 330,175 345,155 350,175"/>
+      <polygon class="region" data-name="목" points="200,210 150,210 100,90 155,85"/>
+      <ellipse class="region" data-name="머리" cx="110" cy="75" rx="58" ry="45"/>
+      <circle class="fixed" cx="125" cy="65" r="9" fill="#2b2b2b"/>
+      <circle class="fixed" cx="70" cy="85" r="6" fill="#2b2b2b"/>
+    `
+  },
+  {
     id: 'butterfly',
     name: '나비',
     emoji: '🦋',
