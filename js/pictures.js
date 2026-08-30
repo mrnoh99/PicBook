@@ -4,6 +4,22 @@
 // class="fixed"    : 눈, 코, 수염처럼 색칠 대상이 아닌 고정 장식
 const PICTURES = [
   {
+    id: 'chair',
+    name: '의자',
+    nameEn: 'Chair',
+    emoji: '🪑',
+    svg: `
+      <polygon class="region" data-name="왼쪽등받이기둥" points="163,197 181,194 166,49 148,52"/>
+      <polygon class="region" data-name="오른쪽등받이기둥" points="300,197 318,194 303,49 285,52"/>
+      <rect class="region" data-name="가로대1" x="155" y="132" width="160" height="16" rx="6"/>
+      <rect class="region" data-name="가로대2" x="152" y="77" width="155" height="16" rx="6"/>
+      <polygon class="region" data-name="의자" points="100,280 380,280 320,195 165,195"/>
+      <polygon class="region" data-name="왼쪽앞다리" points="95,282 122,280 108,385 82,388"/>
+      <polygon class="region" data-name="오른쪽앞다리" points="358,280 385,282 398,388 372,385"/>
+      <rect class="region" data-name="쌈지" x="215" y="228" width="45" height="18" rx="9"/>
+    `
+  },
+  {
     id: 'car',
     name: '자동차',
     nameEn: 'Car',
@@ -288,19 +304,6 @@ const PICTURES = [
       <rect class="region" data-name="창문1" x="150" y="210" width="60" height="60"/>
       <rect class="region" data-name="창문2" x="290" y="210" width="60" height="60"/>
       <circle class="fixed" cx="250" cy="330" r="5" fill="#2b2b2b"/>
-    `
-  },
-  {
-    id: 'chair',
-    name: '의자',
-    nameEn: 'Chair',
-    emoji: '🪑',
-    svg: `
-      <polygon class="region" data-name="등받이" points="160,198 184,195 210,48 140,55"/>
-      <polygon class="region" data-name="의자" points="100,280 380,280 320,195 165,195"/>
-      <polygon class="region" data-name="왼쪽앞다리" points="95,282 122,280 108,385 82,388"/>
-      <polygon class="region" data-name="오른쪽앞다리" points="358,280 385,282 398,388 372,385"/>
-      <rect class="region" data-name="쌈지" x="215" y="228" width="45" height="18" rx="9"/>
     `
   }
 ];
