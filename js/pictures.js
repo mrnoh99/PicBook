@@ -289,5 +289,19 @@ const PICTURES = [
       <rect class="region" data-name="창문2" x="290" y="210" width="60" height="60"/>
       <circle class="fixed" cx="250" cy="330" r="5" fill="#2b2b2b"/>
     `
+  },
+  {
+    id: 'chair',
+    name: '의자',
+    nameEn: 'Chair',
+    emoji: '🪑',
+    svg: `
+      <rect class="region" data-name="뒷다리" x="300" y="100" width="20" height="260" rx="8"/>
+      <rect class="region" data-name="등받이" x="270" y="90" width="70" height="90" rx="16"/>
+      <rect class="region" data-name="의자" x="130" y="225" width="200" height="30" rx="8"/>
+      <rect class="region" data-name="앞다리" x="140" y="255" width="20" height="105" rx="8"/>
+      <rect class="region" data-name="버팀대" x="155" y="315" width="150" height="14" rx="6"/>
+      <rect class="region" data-name="쌈지" x="170" y="208" width="40" height="16" rx="8"/>
+    `
   }
 ];
