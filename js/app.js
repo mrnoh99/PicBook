@@ -64,7 +64,10 @@ function renderHome() {
           (p) => `
           <a class="card" href="#/color/${p.id}">
             <div class="thumb"><svg viewBox="${VIEWBOX}">${p.svg}</svg></div>
-            <div class="label">${p.emoji} ${p.name}</div>
+            <div class="label">
+              <span class="label-ko">${p.emoji} ${p.name}</span>
+              <span class="label-en">${p.nameEn}</span>
+            </div>
           </a>
         `
         ).join('')}
@@ -82,7 +85,10 @@ function renderColorPage(id) {
     <div class="colorview">
       <div class="topbar">
         <a class="btn round" href="#/" aria-label="홈으로">🏠</a>
-        <div class="title">${pic.emoji} ${pic.name}</div>
+        <div class="title">
+          <span class="title-ko">${pic.emoji} ${pic.name}</span>
+          <span class="title-en">${pic.nameEn}</span>
+        </div>
         <button class="btn round" id="resetBtn" aria-label="다시 칠하기">↺</button>
       </div>
       <div class="stage">

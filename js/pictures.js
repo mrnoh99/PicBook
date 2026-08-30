@@ -6,6 +6,7 @@ const PICTURES = [
   {
     id: 'car',
     name: '자동차',
+    nameEn: 'Car',
     emoji: '🚗',
     svg: `
       <circle class="fixed" cx="150" cy="290" r="44" fill="#2b2b2b"/>
@@ -22,6 +23,7 @@ const PICTURES = [
   {
     id: 'truck',
     name: '트럭',
+    nameEn: 'Truck',
     emoji: '🚚',
     svg: `
       <circle class="fixed" cx="140" cy="290" r="44" fill="#2b2b2b"/>
@@ -37,6 +39,7 @@ const PICTURES = [
   {
     id: 'bus',
     name: '버스',
+    nameEn: 'Bus',
     emoji: '🚌',
     svg: `
       <circle class="fixed" cx="150" cy="290" r="44" fill="#2b2b2b"/>
@@ -54,6 +57,7 @@ const PICTURES = [
   {
     id: 'firetruck',
     name: '소방차',
+    nameEn: 'Fire Truck',
     emoji: '🚒',
     svg: `
       <circle class="fixed" cx="140" cy="290" r="44" fill="#2b2b2b"/>
@@ -81,6 +85,7 @@ const PICTURES = [
   {
     id: 'sportscar',
     name: '스포츠카',
+    nameEn: 'Sports Car',
     emoji: '🏎️',
     svg: `
       <circle class="fixed" cx="150" cy="300" r="42" fill="#2b2b2b"/>
@@ -99,6 +104,7 @@ const PICTURES = [
   {
     id: 'fish',
     name: '물고기',
+    nameEn: 'Fish',
     emoji: '🐠',
     svg: `
       <ellipse class="region" data-name="몸통" cx="230" cy="200" rx="150" ry="95"/>
@@ -114,6 +120,7 @@ const PICTURES = [
   {
     id: 'dog',
     name: '강아지',
+    nameEn: 'Dog',
     emoji: '🐶',
     svg: `
       <ellipse class="region" data-name="귀1" cx="145" cy="130" rx="42" ry="68"/>
@@ -129,6 +136,7 @@ const PICTURES = [
   {
     id: 'cat',
     name: '고양이',
+    nameEn: 'Cat',
     emoji: '🐱',
     svg: `
       <path class="region" data-name="꼬리" d="M380,330 Q460,300 445,195 Q435,150 402,175 Q422,255 358,300 Z"/>
@@ -148,6 +156,7 @@ const PICTURES = [
   {
     id: 'elephant',
     name: '코끼리',
+    nameEn: 'Elephant',
     emoji: '🐘',
     svg: `
       <ellipse class="region" data-name="귀" cx="115" cy="175" rx="95" ry="115"/>
@@ -162,6 +171,7 @@ const PICTURES = [
   {
     id: 'mouse',
     name: '생쥐',
+    nameEn: 'Mouse',
     emoji: '🐭',
     svg: `
       <path class="region" data-name="꼬리" d="M400,290 Q480,270 470,180 Q465,150 445,160 Q455,220 385,255 Z"/>
@@ -180,6 +190,7 @@ const PICTURES = [
   {
     id: 'bear',
     name: '곰',
+    nameEn: 'Bear',
     emoji: '🐻',
     svg: `
       <rect class="region" data-name="발1" x="175" y="345" width="48" height="50" rx="16"/>
@@ -197,6 +208,7 @@ const PICTURES = [
   {
     id: 'panda',
     name: '판다',
+    nameEn: 'Panda',
     emoji: '🐼',
     svg: `
       <rect class="fixed" x="178" y="345" width="46" height="48" rx="16" fill="#2b2b2b"/>
@@ -215,6 +227,7 @@ const PICTURES = [
   {
     id: 'dino',
     name: '공룡',
+    nameEn: 'Dinosaur',
     emoji: '🦕',
     svg: `
       <rect class="region" data-name="다리1" x="200" y="320" width="45" height="65" rx="12"/>
@@ -231,6 +244,7 @@ const PICTURES = [
   {
     id: 'butterfly',
     name: '나비',
+    nameEn: 'Butterfly',
     emoji: '🦋',
     svg: `
       <path class="region" data-name="날개1" d="M235,150 C150,70 50,100 65,180 C85,225 180,205 235,170 Z"/>
@@ -246,6 +260,7 @@ const PICTURES = [
   {
     id: 'sun',
     name: '해님',
+    nameEn: 'Sun',
     emoji: '☀️',
     svg: `
       <rect class="region" data-name="햇살1" x="235" y="20" width="30" height="80" rx="10" transform="rotate(0 250 200)"/>
@@ -263,6 +278,7 @@ const PICTURES = [
   {
     id: 'house',
     name: '집',
+    nameEn: 'House',
     emoji: '🏠',
     svg: `
       <rect class="region" data-name="굴뚝" x="315" y="85" width="34" height="75"/>
