@@ -296,12 +296,11 @@ const PICTURES = [
     nameEn: 'Chair',
     emoji: '🪑',
     svg: `
-      <rect class="region" data-name="뒷다리" x="300" y="100" width="20" height="260" rx="8"/>
-      <rect class="region" data-name="등받이" x="270" y="90" width="70" height="90" rx="16"/>
-      <rect class="region" data-name="의자" x="130" y="225" width="200" height="30" rx="8"/>
-      <rect class="region" data-name="앞다리" x="140" y="255" width="20" height="105" rx="8"/>
-      <rect class="region" data-name="버팀대" x="155" y="315" width="150" height="14" rx="6"/>
-      <rect class="region" data-name="쌈지" x="170" y="208" width="40" height="16" rx="8"/>
+      <polygon class="region" data-name="등받이" points="160,198 184,195 210,48 140,55"/>
+      <polygon class="region" data-name="의자" points="100,280 380,280 320,195 165,195"/>
+      <polygon class="region" data-name="왼쪽앞다리" points="95,282 122,280 108,385 82,388"/>
+      <polygon class="region" data-name="오른쪽앞다리" points="358,280 385,282 398,388 372,385"/>
+      <rect class="region" data-name="쌈지" x="215" y="228" width="45" height="18" rx="9"/>
     `
   }
 ];
