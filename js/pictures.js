@@ -79,6 +79,24 @@ const PICTURES = [
     `
   },
   {
+    id: 'sportscar',
+    name: '스포츠카',
+    emoji: '🏎️',
+    svg: `
+      <circle class="fixed" cx="150" cy="300" r="42" fill="#2b2b2b"/>
+      <circle class="fixed" cx="380" cy="300" r="42" fill="#2b2b2b"/>
+      <polygon class="region" data-name="차체" points="60,270 65,240 110,222 160,195 230,160 330,160 400,195 445,222 452,255 452,270"/>
+      <polygon class="region" data-name="보닛" points="65,240 110,222 160,195 140,205 95,232"/>
+      <polygon class="region" data-name="지붕" points="230,160 330,160 320,168 240,168"/>
+      <polygon class="region" data-name="창문" points="175,190 235,168 320,168 385,190 355,195 200,195"/>
+      <polygon class="region" data-name="사이드미러" points="158,200 172,196 176,206 162,210"/>
+      <polygon class="region" data-name="스포일러" points="420,222 452,210 452,222 430,230"/>
+      <circle class="region" data-name="전조등" cx="72" cy="248" r="12"/>
+      <circle class="region" data-name="바퀴1" cx="150" cy="300" r="17"/>
+      <circle class="region" data-name="바퀴2" cx="380" cy="300" r="17"/>
+    `
+  },
+  {
     id: 'fish',
     name: '물고기',
     emoji: '🐠',
