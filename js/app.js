@@ -19,7 +19,9 @@ const COLORS = [
 let currentColor = COLORS[0].hex;
 
 const SVG_NS = 'http://www.w3.org/2000/svg';
-const BRUSH_WIDTH = 28;
+const MIN_BRUSH = 10;
+const MAX_BRUSH = 46;
+const BRUSH_RATIO = 0.35;
 
 function storageKey(id) {
   return 'picbook-strokes-' + id;
@@ -67,22 +69,31 @@ function setupPaintLayers(svg, pictureId) {
     const paintGroup = document.createElementNS(SVG_NS, 'g');
     paintGroup.classList.add('paint-group');
     paintGroup.dataset.name = region.dataset.name;
+    paintGroup.dataset.brush = brushWidthFor(region);
     paintGroup.setAttribute('clip-path', `url(#${clipId})`);
     region.parentNode.insertBefore(paintGroup, region);
   });
 }
 
+// 면의 실제 크기(bbox)에 비례해서 붓 굵기를 정한다 - 넓은 면은 굵게, 좁은 면은 가늘게.
+function brushWidthFor(region) {
+  const bbox = region.getBBox();
+  const shortSide = Math.min(bbox.width, bbox.height);
+  const width = shortSide * BRUSH_RATIO;
+  return Math.min(MAX_BRUSH, Math.max(MIN_BRUSH, width));
+}
+
 function renderStrokes(svg, saved) {
   svg.querySelectorAll('.paint-group').forEach((g) => {
     const strokes = saved[g.dataset.name] || [];
-    strokes.forEach((s) => g.appendChild(makeStrokePath(s.color, s.d)));
+    strokes.forEach((s) => g.appendChild(makeStrokePath(s.color, s.d, g.dataset.brush)));
   });
 }
 
-function makeStrokePath(color, d) {
+function makeStrokePath(color, d, width) {
   const path = document.createElementNS(SVG_NS, 'path');
   path.setAttribute('stroke', color);
-  path.setAttribute('stroke-width', BRUSH_WIDTH);
+  path.setAttribute('stroke-width', width);
   path.setAttribute('stroke-linecap', 'round');
   path.setAttribute('stroke-linejoin', 'round');
   path.setAttribute('fill', 'none');
@@ -200,7 +211,7 @@ function renderColorPage(id) {
     if (!paintGroup) return;
     svg.setPointerCapture(e.pointerId);
     const p = toLocalPoint(paintGroup, e.clientX, e.clientY);
-    strokePath = makeStrokePath(currentColor, `M${p.x},${p.y}`);
+    strokePath = makeStrokePath(currentColor, `M${p.x},${p.y}`, paintGroup.dataset.brush);
     paintGroup.appendChild(strokePath);
   });
 
