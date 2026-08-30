@@ -55,10 +55,6 @@ function renderHome() {
     <div class="home">
       <h1>🎨 해성 해준의 색칠공부</h1>
       <p class="subtitle">그림을 골라서 예쁘게 색칠해보세요!</p>
-      <div class="family-photos">
-        <img class="family-photo" src="img/kids.jpg" alt="해성이와 해준이" />
-        <img class="family-photo" src="img/family.jpg" alt="우리 가족" />
-      </div>
       <div class="grid">
         ${PICTURES.map(
           (p) => `
