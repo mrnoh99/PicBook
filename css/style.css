@@ -189,13 +189,17 @@ body {
 }
 
 .region {
-  fill: #ffffff;
+  fill: none;
   stroke: #3a3a3a;
   stroke-width: 6;
   stroke-linejoin: round;
   stroke-linecap: round;
   cursor: pointer;
-  transition: fill 0.08s ease;
+  pointer-events: all;
+}
+
+.paint-group path {
+  pointer-events: none;
 }
 
 .bg-region {

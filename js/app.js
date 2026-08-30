@@ -18,11 +18,14 @@ const COLORS = [
 
 let currentColor = COLORS[0].hex;
 
+const SVG_NS = 'http://www.w3.org/2000/svg';
+const BRUSH_WIDTH = 28;
+
 function storageKey(id) {
-  return 'picbook-colors-' + id;
+  return 'picbook-strokes-' + id;
 }
 
-function loadColors(id) {
+function loadStrokes(id) {
   try {
     return JSON.parse(localStorage.getItem(storageKey(id)) || '{}');
   } catch (e) {
@@ -30,12 +33,74 @@ function loadColors(id) {
   }
 }
 
-function saveColors(id, data) {
+function saveStrokes(id, svg) {
+  const data = {};
+  svg.querySelectorAll('.paint-group').forEach((g) => {
+    const paths = [...g.children].map((p) => ({
+      color: p.getAttribute('stroke'),
+      d: p.getAttribute('d')
+    }));
+    if (paths.length) data[g.dataset.name] = paths;
+  });
   try {
     localStorage.setItem(storageKey(id), JSON.stringify(data));
   } catch (e) {
     // 저장 공간이 없어도 앱은 계속 동작해야 한다
   }
+}
+
+// 각 region 도형마다: (1) 같은 모양의 clipPath를 만들고 (2) 그 clipPath로 잘리는
+// paint-group을 region 바로 앞에 끼워 넣는다. 붓 자국은 paint-group 안에 그려지므로
+// region의 테두리(선) 밖으로는 절대 삐져나가지 않는다.
+function setupPaintLayers(svg, pictureId) {
+  const regions = svg.querySelectorAll('.region');
+  regions.forEach((region, i) => {
+    const clipId = `clip-${pictureId}-${i}`;
+    const clipPath = document.createElementNS(SVG_NS, 'clipPath');
+    clipPath.id = clipId;
+    const clipShape = region.cloneNode(false);
+    clipShape.removeAttribute('class');
+    clipShape.removeAttribute('data-name');
+    clipPath.appendChild(clipShape);
+    region.parentNode.insertBefore(clipPath, region);
+
+    const paintGroup = document.createElementNS(SVG_NS, 'g');
+    paintGroup.classList.add('paint-group');
+    paintGroup.dataset.name = region.dataset.name;
+    paintGroup.setAttribute('clip-path', `url(#${clipId})`);
+    region.parentNode.insertBefore(paintGroup, region);
+  });
+}
+
+function renderStrokes(svg, saved) {
+  svg.querySelectorAll('.paint-group').forEach((g) => {
+    const strokes = saved[g.dataset.name] || [];
+    strokes.forEach((s) => g.appendChild(makeStrokePath(s.color, s.d)));
+  });
+}
+
+function makeStrokePath(color, d) {
+  const path = document.createElementNS(SVG_NS, 'path');
+  path.setAttribute('stroke', color);
+  path.setAttribute('stroke-width', BRUSH_WIDTH);
+  path.setAttribute('stroke-linecap', 'round');
+  path.setAttribute('stroke-linejoin', 'round');
+  path.setAttribute('fill', 'none');
+  path.setAttribute('d', d);
+  return path;
+}
+
+// clientX/clientY(화면 좌표)를 el이 속한 SVG 좌표계로 변환한다.
+// el 자신이 회전/이동된 <g> 안에 있어도 정확히 맞아떨어진다.
+function toLocalPoint(el, clientX, clientY) {
+  const svg = el.ownerSVGElement;
+  const pt = svg.createSVGPoint();
+  pt.x = clientX;
+  pt.y = clientY;
+  const ctm = el.getScreenCTM();
+  if (!ctm) return { x: 0, y: 0 };
+  const p = pt.matrixTransform(ctm.inverse());
+  return { x: p.x, y: p.y };
 }
 
 function router() {
@@ -108,12 +173,8 @@ function renderColorPage(id) {
   `;
 
   const svg = document.getElementById('pic');
-  const regions = svg.querySelectorAll('.region');
-  const saved = loadColors(id);
-  regions.forEach((r) => {
-    const name = r.dataset.name;
-    if (saved[name]) r.style.fill = saved[name];
-  });
+  setupPaintLayers(svg, id);
+  renderStrokes(svg, loadStrokes(id));
 
   const palette = document.getElementById('palette');
   const firstSwatch = palette.querySelector('.swatch');
@@ -128,19 +189,42 @@ function renderColorPage(id) {
     currentColor = btn.dataset.color;
   });
 
+  let strokePath = null;
+  let paintGroup = null;
+
   svg.addEventListener('pointerdown', (e) => {
-    const target = e.target.closest('.region');
-    if (!target) return;
-    target.style.fill = currentColor;
-    const data = loadColors(id);
-    data[target.dataset.name] = currentColor;
-    saveColors(id, data);
-    checkComplete(svg);
+    if (strokePath) return; // 한 번에 한 붓만
+    const region = e.target.closest('.region');
+    if (!region) return;
+    paintGroup = svg.querySelector(`.paint-group[data-name="${region.dataset.name}"]`);
+    if (!paintGroup) return;
+    svg.setPointerCapture(e.pointerId);
+    const p = toLocalPoint(paintGroup, e.clientX, e.clientY);
+    strokePath = makeStrokePath(currentColor, `M${p.x},${p.y}`);
+    paintGroup.appendChild(strokePath);
   });
 
+  svg.addEventListener('pointermove', (e) => {
+    if (!strokePath) return;
+    const p = toLocalPoint(paintGroup, e.clientX, e.clientY);
+    strokePath.setAttribute('d', strokePath.getAttribute('d') + ` L${p.x},${p.y}`);
+  });
+
+  const endStroke = () => {
+    if (!strokePath) return;
+    strokePath = null;
+    paintGroup = null;
+    saveStrokes(id, svg);
+    checkComplete(svg);
+  };
+  svg.addEventListener('pointerup', endStroke);
+  svg.addEventListener('pointercancel', endStroke);
+
   document.getElementById('resetBtn').addEventListener('click', () => {
-    regions.forEach((r) => (r.style.fill = ''));
-    saveColors(id, {});
+    svg.querySelectorAll('.paint-group').forEach((g) => {
+      g.innerHTML = '';
+    });
+    saveStrokes(id, svg);
   });
 
   document.getElementById('prevBtn').addEventListener('click', () => {
@@ -155,9 +239,9 @@ function renderColorPage(id) {
 }
 
 function checkComplete(svg) {
-  const regions = [...svg.querySelectorAll('.region')];
-  const allColored = regions.every((r) => r.style.fill && r.style.fill !== '');
-  if (allColored) {
+  const groups = [...svg.querySelectorAll('.paint-group')];
+  const allPainted = groups.length > 0 && groups.every((g) => g.children.length > 0);
+  if (allPainted) {
     const toast = document.getElementById('toast');
     toast.classList.add('show');
     setTimeout(() => toast.classList.remove('show'), 1800);
